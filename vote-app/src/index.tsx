@@ -8,17 +8,19 @@ import { voterToolStore } from './stores/voterToolStore';
 import { VoterToolContainer } from './containers/voters/VoterToolContainer';
 import { CreateElectionContainer } from './containers/elections/CreateElectionContainer';
 import { DisplayElectionsContainer } from './containers/elections/DisplayElectionsContainer';
+import { Home } from './components/Home';
 
 import './index.css';
 
 ReactDOM.render(
     <Router>
         <div>
-        <Provider store={voterToolStore}>
-            <Route exact path="/voter" component={VoterToolContainer} />
-            <Route exact path="/createElections" component={CreateElectionContainer} />
-            <Route exact path="/elections" component={DisplayElectionsContainer} />
-        </Provider>,
+            <Provider store={voterToolStore}>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/voter" component={VoterToolContainer} />
+                <Route exact path="/createElections" component={CreateElectionContainer} />
+                <Route exact path="/elections" component={DisplayElectionsContainer} />
+            </Provider>,
         </div>
     </Router>,
     document.querySelector('#root'),
