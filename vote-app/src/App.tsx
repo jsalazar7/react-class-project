@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from '../public/teamlogo.png';
 import './App.css';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://images.app.goo.gl/9FXk5v6ATJHi5wnf7"
           target="_blank"
           rel="noopener noreferrer"
         >
