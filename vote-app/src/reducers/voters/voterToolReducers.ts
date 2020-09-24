@@ -13,6 +13,7 @@ import {
     SortVotersAction, NewVoterAction, ExistingVoterAction,
     VoterIdAction, VoterAction, isVoterIdAction,
 } from '../../actions/voters/voterToolActions';
+import { Election } from '../../models/elections/Election';
 
 
 export const votersSortReducer: Reducer<VotersSort, SortVotersAction> = (votersSort = { col:'id', dir: 'asc' }, action) => {
@@ -89,8 +90,14 @@ export const votersReducer: Reducer<Voter[], VotersReducerActions> = (voters = [
     return voters;
 };
 
+export const electionsReducer: Reducer<Election[], VotersReducerActions> = (elections = [], action) => {
+
+    return elections;
+};
+
 export const voterToolReducer: Reducer<VoterToolState, AnyAction> = combineReducers({
     votersSort: votersSortReducer,
     editVoterId: editVoterIdReducer,
     voters: votersReducer,
+    elections: electionsReducer,
 });

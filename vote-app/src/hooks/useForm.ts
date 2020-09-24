@@ -3,7 +3,7 @@ import { useState, ChangeEvent} from 'react'; // Custom hooks
 type HTMLFormControls = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
 
 type UseForm = <T>(initialForm: T) =>
-    ([ T, (e: ChangeEvent<HTMLFormControls>) => void, () => void ]);
+    ([ T, (e: ChangeEvent<HTMLFormControls>) => void, () => void, (intput: string) => void ]);
 
 function isInput(x: any): x is HTMLInputElement {
     return x instanceof HTMLInputElement;
@@ -24,6 +24,8 @@ export const useForm: UseForm = (initialForm) => {
 
     const resetForm = () => setForm({ ...initialForm});
 
-    return [ form, change, resetForm ];
+    const resetInputOnForm = (input: string) => setForm({ ...initialForm, [ input ]: ''});
+
+    return [ form, change, resetForm, resetInputOnForm ];
 
 };
