@@ -35,8 +35,9 @@ export function CarEditRow({car, onSaveCar, onCancelCar}: CarEditRowProps) {
     return (
         <tr>
             <td>{car.id}</td>
-            <td><input type="text" name="first" value={carForm.firstName} onChange={change} /></td>
-            <td><input type="text" name="last" value={carForm.lastName} onChange={change} /></td>
+            <td>{props.car.id}</td>
+            <td><input type="text" name="firstName" value={carForm.firstName} onChange={change} /></td>
+            <td><input type="text" name="lastName" value={carForm.lastName} onChange={change} /></td>
             <td><input type="text" name="address" value={carForm.address} onChange={change} /></td>
             <td><input type="text" name="city" value={carForm.city} onChange={change} /></td>
             <td><input type="number" name="birthday" value={carForm.birthday} onChange={change} /></td>
