@@ -5,6 +5,8 @@ import { nanToString } from '../utils';
 import { useForm } from '../hooks/useForm';
 import { CarFormData } from '../models/CarTool';
 
+import './CarTool.css';
+
 export type CarFormProps = {
     buttonText: string,
     onSubmitCar: (carForm: CarFormData) => void,
