@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 
 import { voterToolStore } from './stores/voterToolStore';
 import { VoterToolContainer } from './containers/voters/VoterToolContainer';
+import { CreateElectionContainer } from './containers/elections/CreateElectionContainer';
 
 import './index.css';
 
@@ -14,6 +15,7 @@ ReactDOM.render(
         <div>
         <Provider store={voterToolStore}>
             <Route exact path="/voter" component={VoterToolContainer} />
+            <Route exact path="/elections" component={CreateElectionContainer} />
         </Provider>,
         </div>
     </Router>,
