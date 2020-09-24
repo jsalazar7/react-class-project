@@ -1,14 +1,18 @@
 import React from 'react';
 import { Election } from '../../models/elections/Election'
 import { ElectionViewRow } from './ElectionViewRow'
+import { ToolHeader } from '../ToolHeader';
 
 export type ElectionsTableProps = {
     elections: Election[],
+    onSelectElection: (id:number) => void,
 };
 
 export function ElectionsTable(props: ElectionsTableProps) {
 
     return (
+        <>
+        <ToolHeader headerText="Elections" />
         <table>
             <thead>
                 <tr>
@@ -23,10 +27,11 @@ export function ElectionsTable(props: ElectionsTableProps) {
                         <ElectionViewRow
                             key={election.id}
                             election={election}
-                            onVote={(id:number)=>console.log(id)}
+                            onVote={props.onSelectElection}
                         />)
                 }
             </tbody>
         </table>
+        </>
     );
 }
