@@ -14,13 +14,6 @@ import {
     CarIdAction, CarAction, isCarIdAction,
 } from '../actions/carToolActions';
 
-/*
-const carList: Car[] = [
-    { id: 1, make: 'Ford', model: 'Fusion Hydrid', year: 2020, color: 'blue', price: 45000 },
-    { id: 2, make: 'Tesla', model: 'S', year: 2019, color: 'red', price: 62000 },
-    { id: 3, make: 'Porsche', model: 'Macan', year: 2004, color: 'white', price: 80000 },
-];
- */
 
 export const carsSortReducer: Reducer<CarsSort, SortCarsAction> = (carsSort = { col:'id', dir: 'asc' }, action) => {
 
@@ -85,8 +78,12 @@ export const carsReducer: Reducer<Car[], CarsReducerActions> = (cars = [], actio
         return newCars
     }
 
-    if (isCarIdAction(action) && action.type === REMOVE_CAR_ACTION) {
-        return cars.filter(c => c.id !== action.payload.carId);
+    if (isCarIdAction(action)) {
+        if( action.type === REMOVE_CAR_ACTION) {
+            return cars.filter(c => c.id !== action.payload.carId);
+        }
+        else if (action.type === EDIT_CAR_ACTION) {
+        }
     }
 
     return cars;

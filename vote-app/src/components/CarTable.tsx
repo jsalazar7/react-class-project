@@ -15,19 +15,13 @@ export type CarTableProps = {
     onDeleteCar: (carId: number) => void,
     onSaveCar: (car: Car) => void,
     onCancelCar: () => void,
-    // onSortCars: (col: string) => void,
-    // onSortCars: (col: CarKeys) => void,
     onSortCars: (col: keyof Car) => void,
 };
 
 type ColHeaderProps = {
     carsSort: CarsSort,
-    // col: string,
-    // col: CarKeys,
     col: keyof Car,
     caption: string,
-    // onClick: (col: string) => void,
-    // onClick: (col: CarKeys) => void,
     onClick: (col: keyof Car) => void,
 }
 

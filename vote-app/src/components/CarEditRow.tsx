@@ -3,7 +3,7 @@ import React from 'react';
 import { Car } from '../models/Car';
 import {useForm} from "../hooks/useForm";
 
-type CarFormData = {
+type carData = {
     firstName: string;
     lastName: string;
     address: string;
@@ -20,21 +20,21 @@ export type CarEditRowProps = {
     onCancelCar: () => void,
 };
 
-export function CarEditRow(props: CarEditRowProps) {
+export function CarEditRow({car, onSaveCar, onCancelCar}: CarEditRowProps) {
 
     const [ carForm, change ] = useForm ({
-        firstName: '', lastName: '', address: '', city: '', birthday: 0, email: '', phone: 0,
+       ...car
     }); /* initial value used to initialize the state on the first render */
 
     const saveCar = () => {
-        props.onSaveCar({
+        onSaveCar({
             ...carForm,
-            id: props.car.id,
+            id: car.id,
         });
     }
     return (
         <tr>
-            <td>{props.car.id}</td>
+            <td>{car.id}</td>
             <td><input type="text" name="firstName" value={carForm.firstName} onChange={change} /></td>
             <td><input type="text" name="lastName" value={carForm.lastName} onChange={change} /></td>
             <td><input type="text" name="address" value={carForm.address} onChange={change} /></td>
@@ -46,7 +46,7 @@ export function CarEditRow(props: CarEditRowProps) {
                 <button type="button"
                         onClick={(saveCar)}>Save</button>
                 <button type="button"
-                        onClick={props.onCancelCar}>Cancel</button>
+                        onClick={onCancelCar}>Cancel</button>
             </td>
         </tr>
     );
