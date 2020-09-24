@@ -1,6 +1,7 @@
 import React from 'react';
 import { ToolHeader } from '../ToolHeader';
 import { ElectionsTable } from './ElectionsTable';
+import { BallotForm } from './BallotForm';
 
 
 // TODO: Pull data from REST API
@@ -62,6 +63,10 @@ export function Elections() {
             <ElectionsTable
                 elections={elections}
             />
+            {/* <BallotForm
+                election={elections[0]}
+                onCastVote={b=>console.log(b.electionId)}
+            /> */}
         </>
     );
 

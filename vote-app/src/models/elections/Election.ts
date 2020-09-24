@@ -1,5 +1,3 @@
-import React from 'react';
-
 export type Election = {
     id: number,
     title: string,
