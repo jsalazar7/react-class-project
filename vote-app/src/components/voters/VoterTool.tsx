@@ -41,7 +41,6 @@ export function VoterTool(props: VoterToolProps) {
                       onSaveVoter={saveVoter} onCancelVoter={cancelVoter}
                       onSortVoters={sortVoters} />
             <VoterForm buttonText="Add Voter" onSubmitVoter={addVoter} />
-            <Elections />
             <VoterAuthForm
                 onVerifyVoter={console.log}
             />
