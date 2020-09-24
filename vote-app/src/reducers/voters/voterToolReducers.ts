@@ -15,6 +15,10 @@ import {
 } from '../../actions/voters/voterToolActions';
 import { Election } from '../../models/elections/Election';
 
+import {
+    SelectElectionAction, isSelectElectionAction, isCancelBallotAction
+} from '../../actions/elections/ElectionsActions';
+
 
 export const votersSortReducer: Reducer<VotersSort, SortVotersAction> = (votersSort = { col:'id', dir: 'asc' }, action) => {
 
@@ -37,7 +41,7 @@ export const votersSortReducer: Reducer<VotersSort, SortVotersAction> = (votersS
     return votersSort;
 };
 
-type EditVoterIdReducerActions = NewVoterAction | ExistingVoterAction | VoterIdAction | VoterAction;
+type EditVoterIdReducerActions = NewVoterAction | ExistingVoterAction | VoterIdAction | VoterAction | SelectElectionAction;
 
 export const editVoterIdReducer: Reducer<number, EditVoterIdReducerActions> = (editVoterId = -1, action) => {
 
@@ -91,13 +95,25 @@ export const votersReducer: Reducer<Voter[], VotersReducerActions> = (voters = [
 };
 
 export const electionsReducer: Reducer<Election[], VotersReducerActions> = (elections = [], action) => {
-
     return elections;
 };
+
+export const selectElectionReducer: Reducer<number, EditVoterIdReducerActions> = (electionId = 0, action) => {
+
+    if (isSelectElectionAction(action)) {
+      return action.payload.electionId;
+    }
+    else if (isCancelBallotAction(action)) {
+      return 0;
+    }
+
+    return electionId;
+}
 
 export const voterToolReducer: Reducer<VoterToolState, AnyAction> = combineReducers({
     votersSort: votersSortReducer,
     editVoterId: editVoterIdReducer,
     voters: votersReducer,
     elections: electionsReducer,
+    currentElectionId: selectElectionReducer,
 });
