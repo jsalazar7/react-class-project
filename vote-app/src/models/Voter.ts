@@ -1,4 +1,4 @@
-export type Car = {
+export type Voter = {
     id: number,
     firstName: string,
     lastName: string,
@@ -10,5 +10,5 @@ export type Car = {
     // [ x:string ]: any,
 }
 
-export type CarKeys = 'id' | 'firstName' | 'lastName' | 'address' | 'city' | 'birthday' | 'email' | 'phone';
-export type NewCar = Omit<Car, 'id'>;
+export type VoterKeys = 'id' | 'firstName' | 'lastName' | 'address' | 'city' | 'birthday' | 'email' | 'phone';
+export type NewVoter = Omit<Voter, 'id'>;

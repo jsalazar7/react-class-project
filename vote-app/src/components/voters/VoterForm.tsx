@@ -1,30 +1,30 @@
 
 import React from 'react';
 
-import { nanToString } from '../utils';
-import { useForm } from '../hooks/useForm';
-import { CarFormData } from '../models/CarTool';
+import { nanToString } from '../../utils';
+import { useForm } from '../../hooks/useForm';
+import { VoterFormData } from '../../models/VoterTool';
 
-import './CarTool.css';
+import './VoterTool.css';
 
-export type CarFormProps = {
+export type VoterFormProps = {
     buttonText: string,
-    onSubmitCar: (carForm: CarFormData) => void,
+    onSubmitVoter: (voterForm: VoterFormData) => void,
 };
 
-export function CarForm(props: CarFormProps) {
+export function VoterForm(props: VoterFormProps) {
 
-    const [ carForm, change, resetCarForm ] = useForm ({
+    const [ voterForm, change, resetVoterForm ] = useForm ({
         firstName: '', lastName: '', address: '', city: '', birthday: 0, email: '', phone: 0,
     });
 
-    const submitCar = () => {
+    const submitVoter = () => {
 
-        props.onSubmitCar({
-            ...carForm,
+        props.onSubmitVoter({
+            ...voterForm,
         });
 
-        resetCarForm();
+        resetVoterForm();
     };
 
     return (
@@ -34,52 +34,52 @@ export function CarForm(props: CarFormProps) {
                 <label>
                     First Name
                     <input type="text" name="firstName"
-                           value={carForm.firstName} onChange={change} />
+                           value={voterForm.firstName} onChange={change} />
                 </label>
             </li>
             <li>
                 <label>
                     Last Name
                     <input type="text" name="lastName"
-                           value={carForm.lastName} onChange={change} />
+                           value={voterForm.lastName} onChange={change} />
                 </label>
             </li>
             <li>
                 <label>
                     Address
                     <input type="text" name="address"
-                           value={carForm.address} onChange={change} />
+                           value={voterForm.address} onChange={change} />
                 </label>
             </li>
             <li>
                 <label>
                     City
                     <input type="text" name="city"
-                           value={carForm.city} onChange={change} />
+                           value={voterForm.city} onChange={change} />
                 </label>
             </li>
             <li>
                 <label>
                     Birthday
                     <input type="number" name="birthday"
-                           value={nanToString(carForm.birthday)} onChange={change} />
+                           value={nanToString(voterForm.birthday)} onChange={change} />
                 </label>
             </li>
             <li>
                 <label>
                     Email
                     <input type="text" name="email"
-                           value={carForm.email} onChange={change} />
+                           value={voterForm.email} onChange={change} />
                 </label>
             </li>
             <li>
                 <label>
                     Phone
                     <input type="number" name="phone"
-                           value={nanToString(carForm.phone)} onChange={change} />
+                           value={nanToString(voterForm.phone)} onChange={change} />
                 </label>
             </li>
-            <button type="button" onClick={submitCar}>{props.buttonText}</button>
+            <button type="button" onClick={submitVoter}>{props.buttonText}</button>
             </ul>
         </form>
     );
