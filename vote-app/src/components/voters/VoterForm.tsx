@@ -3,7 +3,7 @@ import React from 'react';
 
 import { nanToString } from '../../utils';
 import { useForm } from '../../hooks/useForm';
-import { VoterFormData } from '../../models/VoterTool';
+import { VoterFormData } from '../../models/voters/VoterTool';
 
 import './VoterTool.css';
 

@@ -2,12 +2,12 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 
-import * as VoterToolActions  from '../actions/voterToolActions';
+import * as VoterToolActions  from '../../actions/voters/voterToolActions';
 
-import { Voter } from '../models/Voter';
-import { VotersSort } from '../models/VoterTool';
-import { VoterToolState } from '../models/VoterToolState';
-import { VoterTool } from '../components/voters/VoterTool';
+import { Voter } from '../../models/voters/Voter';
+import { VotersSort } from '../../models/voters/VoterTool';
+import { VoterToolState } from '../../models/voters/VoterToolState';
+import { VoterTool } from '../../components/voters/VoterTool';
 
 const sortedVoters = (voters: Voter[], votersSort: VotersSort) => {
     // we will improve the typing of this code as part of class tomorrow...

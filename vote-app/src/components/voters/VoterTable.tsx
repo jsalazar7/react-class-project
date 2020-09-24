@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Voter } from '../../models/Voter';
-import { VotersSort } from '../../models/VoterTool';
+import { Voter } from '../../models/voters/Voter';
+import { VotersSort } from '../../models/voters/VoterTool';
 
 import { VoterEditRow } from './VoterEditRow';
 import { VoterViewRow } from './VoterViewRow';

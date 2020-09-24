@@ -1,6 +1,6 @@
 import { Action } from 'redux';
 
-import { Voter, NewVoter, VoterKeys } from '../models/Voter';
+import { Voter, NewVoter, VoterKeys } from '../../models/voters/Voter';
 
 export const APPEND_VOTER_ACTION = 'APPEND_VOTER';
 export const REPLACE_VOTER_ACTION = 'REPLACE_VOTER';

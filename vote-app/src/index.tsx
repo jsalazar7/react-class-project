@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import { voterToolStore } from './stores/voterToolStore';
-import { VoterToolContainer } from './containers/VoterToolContainer';
+import { VoterToolContainer } from './containers/voters/VoterToolContainer';
 
 import './index.css';
 

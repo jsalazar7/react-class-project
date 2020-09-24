@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import { Voter } from '../models/Voter';
-import { VotersSort, VoterFormData, VoterToolStore } from '../models/VoterTool';
-import { useList } from '../hooks/useList';
+import { Voter } from '../models/voters/Voter';
+import { VotersSort, VoterFormData, VoterToolStore } from '../models/voters/VoterTool';
+import { useList } from './useList';
 
 // computed value
 const sortedVoters = (voters: Voter[], votersSort: VotersSort) => {

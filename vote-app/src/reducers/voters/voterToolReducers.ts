@@ -1,18 +1,18 @@
 import { Reducer, combineReducers, AnyAction } from 'redux';
 
-import { Voter } from '../models/Voter';
-import { VotersSort } from '../models/VoterTool';
-import { VoterToolState } from '../models/VoterToolState';
+import { Voter } from '../../models/voters/Voter';
+import { VotersSort } from '../../models/voters/VoterTool';
+import { VoterToolState } from '../../models/voters/VoterToolState';
 
 import {
     EDIT_VOTER_ACTION, isExistingVoterAction, isNewVoterAction,
     REMOVE_VOTER_ACTION, isVoterAction, APPEND_VOTER_ACTION, REPLACE_VOTER_ACTION, isSortVotersAction
-} from '../actions/voterToolActions';
+} from '../../actions/voters/voterToolActions';
 
 import {
     SortVotersAction, NewVoterAction, ExistingVoterAction,
     VoterIdAction, VoterAction, isVoterIdAction,
-} from '../actions/voterToolActions';
+} from '../../actions/voters/voterToolActions';
 
 
 export const votersSortReducer: Reducer<VotersSort, SortVotersAction> = (votersSort = { col:'id', dir: 'asc' }, action) => {

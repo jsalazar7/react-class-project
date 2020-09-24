@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { Voter } from '../models/Voter';
-import { VoterFormData } from '../models/VoterTool';
+import { Voter } from '../models/voters/Voter';
+import { VoterFormData } from '../models/voters/VoterTool';
 
 type UseVoterList = (initialVoters: Voter[]) => ([ Voter[], (voterForm: VoterFormData) => void, (voter: Voter) => void, (voterId: number) => void ]);
 

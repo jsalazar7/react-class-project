@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Voter } from '../../models/Voter';
+import { Voter } from '../../models/voters/Voter';
 import {useForm} from "../../hooks/useForm";
 
 type voterData = {

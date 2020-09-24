@@ -4,8 +4,8 @@ import { ToolHeader } from '../ToolHeader';
 import { VoterTable } from './VoterTable';
 import { VoterForm } from './VoterForm';
 
-import { Voter, NewVoter, VoterKeys } from '../../models/Voter';
-import { VotersSort } from '../../models/VoterTool';
+import { Voter, NewVoter, VoterKeys } from '../../models/voters/Voter';
+import { VotersSort } from '../../models/voters/VoterTool';
 
 export type VoterToolProps = {
     voters: Voter[],
