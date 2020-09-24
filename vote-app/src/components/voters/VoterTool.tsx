@@ -6,7 +6,7 @@ import { VoterForm } from './VoterForm';
 
 import { Voter, NewVoter, VoterKeys } from '../../models/voters/Voter';
 import { VotersSort } from '../../models/voters/VoterTool';
-import { Elections } from  '../Elections/Elections';
+import { Elections } from  '../elections/Elections';
 
 export type VoterToolProps = {
     voters: Voter[],

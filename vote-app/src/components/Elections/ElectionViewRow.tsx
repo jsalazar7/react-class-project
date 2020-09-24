@@ -14,7 +14,7 @@ export function ElectionViewRow({election}: ElectionViewRowProps) {
             <td>{election.id}</td>
             <td>{election.title}</td>
             <td>
-                <button type="button">Vote</button>
+                <button type="button" >Vote</button>
                         {/* onClick={() => onVote(election.id)}>Vote</button> */}
             </td>
         </tr>
