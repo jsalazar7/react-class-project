@@ -17,14 +17,13 @@ export function ElectionsTable(props: ElectionsTableProps) {
                 </tr>
             </thead>
             <tbody>
-                {
-                    props.elections.map(election => {
+                {props.elections.map(election => 
                         <ElectionViewRow
                             key={election.id}
                             election={election}
                             //onVote={(id)=>{}}
                         />
-                    })
+                    )
                 }
             </tbody>
         </table>
