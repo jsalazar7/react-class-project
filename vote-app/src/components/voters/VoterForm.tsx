@@ -19,11 +19,9 @@ export function VoterForm(props: VoterFormProps) {
     });
 
     const submitVoter = () => {
-
         props.onSubmitVoter({
             ...voterForm,
         });
-
         resetVoterForm();
     };
 
