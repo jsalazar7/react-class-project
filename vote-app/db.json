@@ -48,14 +48,20 @@
             "questions": [
                 {
                     "id": 1,
-                    "question": "Do you like dogs?"
+                    "question": "Do you like dogs?",
+                    "yes": 1
                 },{
                     "id": 2,
-                    "question": "Do you like cats?"
+                    "question": "Do you like cats?",
+                    "yes": 0
                 },{
                     "id": 3,
-                    "question": "Do you like snakes?"
+                    "question": "Do you like snakes?",
+                    "yes": 1
                 }
+            ],
+            "voters": [
+                1, 2
             ]
         },
         {
@@ -64,48 +70,19 @@
             "questions": [
                 {
                     "id": 1,
-                    "question": "Do you like pizza?"
+                    "question": "Do you like pizza?",
+                    "yes": 0
                 },{
                     "id": 2,
-                    "question": "Do you like burritos?"
+                    "question": "Do you like burritos?",
+                    "yes": 0
                 },{
                     "id": 3,
-                    "question": "Do you like suhsi?"
+                    "question": "Do you like suhsi?",
+                    "yes": 0
                 }
-            ]
-        }
-    ],
-    "ballots": [
-        {
-            "id": 1,
-            "electionId": 1,
-            "voterId": 1,
-            "answers": [
-                0, 1, 1
-            ]
-        },
-        {
-            "id": 2,
-            "electionId": 1,
-            "voterId": 2,
-            "answers": [
-                1, 1, 1
-            ]
-        },
-        {
-            "id": 3,
-            "electionId": 1,
-            "voterId": 3,
-            "answers": [
-                1, 0, 0
-            ]
-        },
-        {
-            "id": 4,
-            "electionId": 1,
-            "voterId": 4,
-            "answers": [
-                0, 1, 1
+            ],
+            "voters": [
             ]
         }
     ]
