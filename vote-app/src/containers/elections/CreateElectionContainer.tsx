@@ -13,14 +13,14 @@ export function CreateElectionContainer() {
 
     const elections = useSelector<VoterToolState, Election[]>(state => state.elections);
     const shownElectionId = useSelector<VoterToolState, number>(state => state.shownElectionId);
-  
+
     const dispatch = useDispatch();
-  
+
     const boundActions = bindActionCreators({
       onAddElection: ElectionToolActions.appendElection,
       onShowElection: ElectionToolActions.createShowElectionAction,
     }, dispatch);
-  
+
     useEffect(() => {
       dispatch(ElectionToolActions.refreshElections());
     }, [dispatch]);

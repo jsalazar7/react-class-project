@@ -2,7 +2,6 @@
 import { Reducer, combineReducers, AnyAction } from 'redux';
 
 import { Election } from '../../models/elections/Election';
-import { ElectionsState } from '../../models/elections/ElectionsState';
 
 import {
     SelectElectionAction, isSelectElectionAction, isCancelBallotAction

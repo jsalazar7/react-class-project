@@ -5,13 +5,13 @@ import { VotersSort } from '../../models/voters/VoterTool';
 import { VoterToolState } from '../../models/voters/VoterToolState';
 
 import {
-    EDIT_VOTER_ACTION, isExistingVoterAction, isNewVoterAction,
+    EDIT_VOTER_ACTION, isExistingVoterAction, isNewVoterAction, isRefreshVotersDoneAction,
     REMOVE_VOTER_ACTION, isVoterAction, APPEND_VOTER_ACTION, REPLACE_VOTER_ACTION, isSortVotersAction
 } from '../../actions/voters/voterToolActions';
 
 import {
     SortVotersAction, NewVoterAction, ExistingVoterAction,
-    VoterIdAction, VoterAction, isVoterIdAction,
+    VoterIdAction, VoterAction, isVoterIdAction, RefreshVotersDoneAction
 } from '../../actions/voters/voterToolActions';
 import { Election } from '../../models/elections/Election';
 
@@ -20,19 +20,8 @@ import {
     isRefreshElectionsRequestAction, isRefreshElectionsDoneAction, 
     ShowElectionAction,
     RefreshElectionsDoneAction,
-    isShowElectionAction,
+    isShowElectionAction
 } from '../../actions/elections/ElectionsActions';
-
-const voterList: Voter[] = [
-    { id: 1, firstName: 'Annette', lastName: 'Beatty', address: '1234 Sesame Street', city: 'San Diego',
-        birthday: 110120, email: "x@gmail.com", phone: 6194812222 },
-    { id: 2, firstName: 'Jorge', lastName: 'Salazar', address: '23354 Main Street', city: 'San Diego',
-        birthday: 121519, email: "yyy@yahoo.com", phone: 5231235382 },
-    { id: 4, firstName: 'Eldin', lastName: 'Turulja', address: '555 Ocean Boulevard', city: 'San Diego',
-        birthday: 101020, email: "fred@gmail.com", phone: 6194812222 },
-    { id: 5, firstName: 'Babu', lastName: 'Raju', address: '5552 El Camino Real', city: 'San Diego',
-        birthday: 121519, email: "babu@intuit.com", phone: 5231235382 },
-];
 
 export const votersSortReducer: Reducer<VotersSort, SortVotersAction> = (votersSort = { col:'id', dir: 'asc' }, action) => {
 
@@ -78,7 +67,11 @@ export const editVoterIdReducer: Reducer<number, EditVoterIdReducerActions> = (e
 
 type VotersReducerActions = NewVoterAction | ExistingVoterAction | VoterIdAction;
 
-export const votersReducer: Reducer<Voter[], VotersReducerActions> = (voters = voterList, action) => {
+export const votersReducer: Reducer<Voter[], VotersReducerActions> = (voters = [], action) => {
+
+    if (isRefreshVotersDoneAction(action)) {
+       return action.payload.voters;
+    }
 
     if (isNewVoterAction(action) && action.type === APPEND_VOTER_ACTION) {
         return [
