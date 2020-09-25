@@ -86,6 +86,7 @@ export function Elections(props:ElectionsProps) {
                     election={props.elections[props.currentElection-1]}
                     voterId={props.authenticatedVoterId}
                     onCastVote={props.onCastBallot}
+                    onCancel={resetAll}
                 />
         }
     }
