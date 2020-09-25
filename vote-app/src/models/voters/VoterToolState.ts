@@ -8,4 +8,5 @@ export type VoterToolState = {
     editVoterId: number,
     voters: Voter[],
     elections: Election[],
+    currentElectionId: number,
 }
