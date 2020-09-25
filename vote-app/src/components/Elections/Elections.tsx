@@ -23,15 +23,20 @@ export function Elections(props:ElectionsProps) {
 
     const verifyVoter = (id: number) => {
 
-        if (!props.voters.find(v => v.id === id)) {
+        if (!props.voters.find(v => v.id == id)) {
             props.onUpdateError(1);
         }
-        else if (props.elections.find(e => e.id === props.currentElection && e.voters.find(v => v === id))){
+        else if (props.elections.find(e => e.id == props.currentElection && e.voters.find(v => v == id))){
             props.onUpdateError(2);
         }
         else {
             props.onVerifyVoter(id);
         }
+    };
+
+    const resetAll = () => {
+        props.onUpdateError(0);
+        props.onSelectElection(0);
     };
 
     // Default case, no election is selected yet.
@@ -41,37 +46,37 @@ export function Elections(props:ElectionsProps) {
             onSelectElection={props.onSelectElection}
         />;
 
-    if (props.currentElection !== 0) {
+    if (props.currentElection != 0) {
 
-        if (props.authenticatedVoterId === 0 && props.errorId === 0) {
+        if (props.authenticatedVoterId == 0 && props.errorId == 0) {
             // No one has authenticated, election selected
             result =
                 <VoterAuthForm
                     onVerifyVoter={verifyVoter}
                 />
         }
-        else if  (props.errorId === 1) {
+        else if  (props.errorId == 1) {
             result =
                 <>
-                <label>No voter was found with that id!</label>
-                <div>
-                    <Link onClick={()=>{props.onUpdateError(0)}} to={"/elections"}>Select Election</Link>
-                </div>
-                <div>
-                    <Link onClick={()=>{props.onUpdateError(0)}} to={"/"}>Home</Link>
-                </div>
+                    <label>No voter was found with that id!</label>
+                    <div>
+                        <Link onClick={resetAll} to={"/elections"}>Select Election</Link>
+                    </div>
+                    <div>
+                        <Link onClick={resetAll} to={"/"}>Home</Link>
+                    </div>
                 </>
         }
-        else if  (props.errorId === 2) {
+        else if  (props.errorId == 2) {
             result =
                 <>
-                <label>Voter has already cast a ballot!</label>
-                <div>
-                    <Link onClick={()=>{props.onUpdateError(0)}} to={"/elections"}>Select Election</Link>
-                </div>
-                <div>
-                    <Link onClick={()=>{props.onUpdateError(0)}} to={"/"}>Home</Link>
-                </div>
+                    <label>Voter has already cast a ballot!</label>
+                    <div>
+                        <Link onClick={resetAll} to={"/elections"}>Select Election</Link>
+                    </div>
+                    <div>
+                        <Link onClick={resetAll} to={"/"}>Home</Link>
+                    </div>
                 </>
         }
         else {
