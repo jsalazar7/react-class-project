@@ -19,3 +19,18 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
+body {
+    text-align: center;
+}
+
+form {
+    display: inline-block;
+}
+
+li {
+    text-align: left;
+}
+
+input {
+    margin-left: 20px;
+}

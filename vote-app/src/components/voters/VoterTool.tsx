@@ -6,8 +6,10 @@ import { VoterForm } from './VoterForm';
 
 import { Voter, NewVoter, VoterKeys } from '../../models/voters/Voter';
 import { VotersSort } from '../../models/voters/VoterTool';
+/*
 import { Elections } from  '../elections/Elections';
 import { VoterAuthForm } from  '../elections/VoterAuthForm';
+ */
 
 export type VoterToolProps = {
     voters: Voter[],
@@ -41,9 +43,6 @@ export function VoterTool(props: VoterToolProps) {
                       onSaveVoter={saveVoter} onCancelVoter={cancelVoter}
                       onSortVoters={sortVoters} />
             <VoterForm buttonText="Add Voter" onSubmitVoter={addVoter} />
-            <VoterAuthForm
-                onVerifyVoter={console.log}
-            />
         </>
     );
 }
