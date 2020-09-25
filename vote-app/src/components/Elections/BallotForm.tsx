@@ -4,6 +4,7 @@ import { useForm } from '../../hooks/useForm';
 import { Ballot } from '../../models/elections/Ballot';
 import { Election } from '../../models/elections/Election';
 import { BallotRow } from './BallotRow';
+import { Route } from 'react-router-dom'
 
 export type BallotFormProps = {
     election: Election,
@@ -21,12 +22,9 @@ export function BallotForm(props: BallotFormProps) {
         reset();
     };
 
-    const cancelVote = () => {
-        // TODO: Return back to home screen
-        reset();
-    };
 
     return (
+        <Route render={({ history}) => (
         <form>
             <table>
                 <thead>
@@ -48,7 +46,7 @@ export function BallotForm(props: BallotFormProps) {
                 </tbody>
             </table>
             <button type="button" onClick={submitVote}>Submit</button>
-            <button type="button" onClick={cancelVote}>Cancel</button>
+            <button type="button" onClick={() => {reset();history.push('/');}}>Cancel</button>
         </form>
-    );
+    )}/>);
 }
