@@ -19,6 +19,16 @@ import {
     SelectElectionAction, isSelectElectionAction, isCancelBallotAction
 } from '../../actions/elections/ElectionsActions';
 
+const voterList: Voter[] = [
+    { id: 1, firstName: 'Annette', lastName: 'Beatty', address: '1234 Sesame Street', city: 'San Diego',
+        birthday: 110120, email: "x@gmail.com", phone: 6194812222 },
+    { id: 2, firstName: 'Jorge', lastName: 'Salazar', address: '23354 Main Street', city: 'San Diego',
+        birthday: 121519, email: "yyy@yahoo.com", phone: 5231235382 },
+    { id: 4, firstName: 'Eldin', lastName: 'Turulja', address: '555 Ocean Boulevard', city: 'San Diego',
+        birthday: 101020, email: "fred@gmail.com", phone: 6194812222 },
+    { id: 5, firstName: 'Babu', lastName: 'Raju', address: '5552 El Camino Real', city: 'San Diego',
+        birthday: 121519, email: "babu@intuit.com", phone: 5231235382 },
+];
 
 export const votersSortReducer: Reducer<VotersSort, SortVotersAction> = (votersSort = { col:'id', dir: 'asc' }, action) => {
 
@@ -64,7 +74,7 @@ export const editVoterIdReducer: Reducer<number, EditVoterIdReducerActions> = (e
 
 type VotersReducerActions = NewVoterAction | ExistingVoterAction | VoterIdAction;
 
-export const votersReducer: Reducer<Voter[], VotersReducerActions> = (voters = [], action) => {
+export const votersReducer: Reducer<Voter[], VotersReducerActions> = (voters = voterList, action) => {
 
     if (isNewVoterAction(action) && action.type === APPEND_VOTER_ACTION) {
         return [
