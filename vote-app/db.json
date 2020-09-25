@@ -208,6 +208,23 @@
       "questions": [],
       "voters": [],
       "id": 11
+    },
+    {
+      "title": "",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Is Fred happy",
+          "yes": 0
+        },
+        {
+          "id": 2,
+          "question": "Is fred sad",
+          "yes": 0
+        }
+      ],
+      "voters": [],
+      "id": 12
     }
   ]
 }

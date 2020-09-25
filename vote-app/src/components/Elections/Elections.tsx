@@ -4,6 +4,7 @@ import { BallotForm } from './BallotForm';
 import { Election } from '../../models/elections/Election';
 import { VoterAuthForm } from './VoterAuthForm';
 import { Voter } from '../../models/voters/Voter';
+import {Link} from "react-router-dom";
 
 export type ElectionsProps = {
     elections: Election[],
@@ -35,34 +36,46 @@ export function Elections(props:ElectionsProps) {
 
     // Default case, no election is selected yet.
     let result =
-    <ElectionsTable
-        elections={props.elections}
-        onSelectElection={props.onSelectElection}
-    />;
+        <ElectionsTable
+            elections={props.elections}
+            onSelectElection={props.onSelectElection}
+        />;
 
     if (props.currentElection !== 0) {
 
         if (props.authenticatedVoterId == 0 && props.errorId == 0) {
             // No one has authenticated, election selected
             result =
-            <VoterAuthForm
-                onVerifyVoter={verifyVoter}
-            />
+                <VoterAuthForm
+                    onVerifyVoter={verifyVoter}
+                />
         }
         else if  (props.errorId === 1) {
-            result = <label>No voter was found with that id!</label>
+            result =
+                <>
+                <label>No voter was found with that id!</label>
+                <div>
+                    <Link to={"/"}>Home</Link>
+                </div>
+                </>
         }
         else if  (props.errorId === 2) {
-            result = <label>Voter has already cast a ballot!</label>
+            result =
+                <>
+                <label>Voter has already cast a ballot!</label>
+                <div>
+                    <Link to={"/"}>Home</Link>
+                </div>
+                </>
         }
         else {
             // Election selected, valid user
             result =
-            <BallotForm
-                election={props.elections[props.currentElection-1]}
-                voterId={props.authenticatedVoterId}
-                onCastVote={props.onCastBallot}
-            />
+                <BallotForm
+                    election={props.elections[props.currentElection-1]}
+                    voterId={props.authenticatedVoterId}
+                    onCastVote={props.onCastBallot}
+                />
         }
     }
 
