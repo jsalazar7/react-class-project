@@ -20,7 +20,7 @@ ReactDOM.render(
                 <Route exact path="/voter" component={VoterToolContainer} />
                 <Route exact path="/createElections" component={CreateElectionContainer} />
                 <Route exact path="/elections" component={DisplayElectionsContainer} />
-            </Provider>,
+            </Provider>
         </div>
     </Router>,
     document.querySelector('#root'),
