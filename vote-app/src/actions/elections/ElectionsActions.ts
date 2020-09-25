@@ -53,6 +53,7 @@ export const createUpdateElectionAction: (election: Election) => UpdateElectionA
 export const updateElection = (election: Election) => {
 
     return async (dispatch: Dispatch) => {
+
       dispatch(createUpdateElectionAction(election));
       await fetch('http://localhost:3060/elections/' + encodeURIComponent(election.id), {
         method: 'PUT',
@@ -60,9 +61,9 @@ export const updateElection = (election: Election) => {
         body: JSON.stringify(election),
       });
       refreshElections()(dispatch);
+
     };
-  
-  };
+};
 
 // End Update Election Action
 

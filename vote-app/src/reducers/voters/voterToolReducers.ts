@@ -21,7 +21,7 @@ import {
     ShowElectionAction,
     RefreshElectionsDoneAction,
     isShowElectionAction,
-    isVerifyVoterAction, isUpdateErrorAction
+    isVerifyVoterAction, isUpdateErrorAction, isUpdateElectionAction
 
 } from '../../actions/elections/ElectionsActions';
 
@@ -132,6 +132,7 @@ export const selectElectionReducer: Reducer<number, EditVoterIdReducerActions> =
     if (isSelectElectionAction(action)) {
       return action.payload.electionId;
     }
+
     else if (isCancelBallotAction(action)) {
       return 0;
     }
@@ -143,6 +144,12 @@ export const authenticateVoterReducer: Reducer<number, EditVoterIdReducerActions
 
     if (isVerifyVoterAction(action)) {
       return action.payload.voterId;
+    }
+    else if(isUpdateElectionAction(action)) {
+        return 0;
+    }
+    else if(isCancelBallotAction(action)) {
+        return 0;
     }
 
     return voterId;

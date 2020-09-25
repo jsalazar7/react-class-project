@@ -37,6 +37,7 @@ export function Elections(props:ElectionsProps) {
     const resetAll = () => {
         props.onUpdateError(0);
         props.onSelectElection(0);
+        props.onVerifyVoter(0);
     };
 
     // Default case, no election is selected yet.
