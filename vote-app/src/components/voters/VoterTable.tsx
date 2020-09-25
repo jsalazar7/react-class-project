@@ -6,6 +6,8 @@ import { VotersSort } from '../../models/voters/VoterTool';
 import { VoterEditRow } from './VoterEditRow';
 import { VoterViewRow } from './VoterViewRow';
 
+import './VoterTool.css';
+
 
 export type VoterTableProps = {
     voters: Voter[],
