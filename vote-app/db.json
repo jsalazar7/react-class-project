@@ -5,9 +5,9 @@
       "lastName": "Beatty2",
       "address": "123 Beach Ave",
       "city": "San Diego",
-      "birthday": "2/2/2020",
+      "birthday": 10101988,
       "email": "a@gmail.com",
-      "phone": "(888) 888-1111",
+      "phone": 8881111212,
       "id": 1
     },
     {
@@ -16,9 +16,9 @@
       "lastName": "Salazar",
       "address": "234 Beach Ave",
       "city": "San Diego",
-      "birthday": "2/2/2020",
+      "birthday": 12202004,
       "email": "b2@gmail.com",
-      "phone": "(888) 888-2222"
+      "phone": 8881111212
     },
     {
       "id": 4,
@@ -26,18 +26,18 @@
       "lastName": "Turulja",
       "address": "234 Beach Ave",
       "city": "San Diego",
-      "birthday": "2/2/2020",
-      "email": "b@gmail.com",
-      "phone": "(888) 888-2222"
+      "birthday": 9081992,
+      "email": "fred@gmail.com",
+      "phone": 8888881212
     },
     {
       "firstName": "Babu",
       "lastName": "Raju",
       "address": "234 Beach Ave",
       "city": "Boise",
-      "birthday": 0,
-      "email": "",
-      "phone": 0,
+      "birthday": 10052001,
+      "email": "b@gmail.com",
+      "phone": 1112222323,
       "id": 5
     }
   ],
