@@ -27,6 +27,10 @@ export function VoterForm(props: VoterFormProps) {
 
     return (
         <form>
+            <div class="container">
+            <br></br>
+            <br></br>
+            <h1>Voter Registration Form</h1>
             <ul>
             <li>
                 <label>
@@ -79,6 +83,7 @@ export function VoterForm(props: VoterFormProps) {
             </li>
             <button type="button" onClick={submitVoter}>{props.buttonText}</button>
             </ul>
+            </div>
         </form>
     );
 }
