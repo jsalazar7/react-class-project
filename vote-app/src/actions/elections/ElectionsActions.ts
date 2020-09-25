@@ -16,6 +16,8 @@ export const APPEND_ELECTION_REQUEST_ACTION = 'APPEND_ELECTION_REQUEST_ACTIO
 export const APPEND_ELECTION_DONE_ACTION = 'APPEND_ELECTION_DONE_ACTION';
 
 export const VIEW_ELECTION_QUESTIONS_ACTION = 'VIEW_ELECTION_QUESTIONS_ACTION';
+export const VERIFY_VOTER_ACTION = 'VERIFY_VOTER';
+export const UPDATE_ERROR_ACTION = 'UPDATE_ERROR';
 
 // New Election Action
 
@@ -38,18 +40,33 @@ export const createAppendElectionAction: CreateNewElectionAction = (election) =>
 
 // Update Election Action
 export interface UpdateElectionAction extends Action<string> {
-    payload: { ballot: Ballot }
+    payload: {election: Election }
 }
 
 export function isUpdateElectionAction(action: Action<string>): action is UpdateElectionAction {
     return UPDATE_ELECTION_ACTION === action.type;
 }
 
-export const createUpdateElectionAction: (ballot: Ballot) => UpdateElectionAction = ballot => ({
-    type: UPDATE_ELECTION_ACTION, payload: { ballot },
+export const createUpdateElectionAction: (election: Election) => UpdateElectionAction = election => ({
+    type: UPDATE_ELECTION_ACTION, payload: { election },
 });
+
 // End Update Election Action
 
+// Verify voter Action
+export interface VerifyVoterAction extends Action<string> {
+    payload: { voterId: number }
+}
+
+export function isVerifyVoterAction(action: Action<string>): action is VerifyVoterAction {
+    return VERIFY_VOTER_ACTION === action.type;
+}
+
+export const createVerifyVoterAction: (voterId: number) => VerifyVoterAction = voterId => ({
+    type: VERIFY_VOTER_ACTION, payload: { voterId },
+});
+
+// End Verify voter Action
 
 // Select Election Action
 export interface SelectElectionAction extends Action<string> {
@@ -168,3 +185,18 @@ export const createShowElectionAction: CreateShowElectionAction = (election
 });
   
 // End Show Election Election
+
+
+// Update Error Action
+export interface UpdateErrorAction extends Action<string> {
+    payload: { errorId: number }
+}
+
+export function isUpdateErrorAction(action: Action<string>): action is UpdateErrorAction {
+    return UPDATE_ERROR_ACTION === action.type;
+}
+
+export const createUpdateErrorAction: (errorId: number) => UpdateErrorAction = errorId => ({
+    type: UPDATE_ERROR_ACTION, payload: { errorId },
+});
+// End Update Error Action

@@ -7,17 +7,23 @@ import * as ElectionToolActions  from '../../actions/elections/ElectionsActions'
 import { Election } from '../../models/elections/Election';
 import { VoterToolState } from '../../models/voters/VoterToolState';
 import { Elections } from '../../components/elections/Elections';
+import { Voter } from '../../models/voters/Voter';
 
 export function DisplayElectionsContainer() {
 
     const elections = useSelector<VoterToolState, Election[]>(state => state.elections);
     const electionId = useSelector<VoterToolState, number>(state => state.currentElectionId);
+    const authenticatedVoterId = useSelector<VoterToolState, number>(state => state.authenticatedVoterId);
+    const voters = useSelector<VoterToolState, Voter[]>(state => state.voters);
+    const errorId = useSelector<VoterToolState, number>(state => state.errorId);
 
     const dispatch = useDispatch();
 
     const boundActions = bindActionCreators({
         onSelectElection: ElectionToolActions.creatSelectElectionAction,
-        onCastBallot: ElectionToolActions.createUpdateElectionAction
+        onCastBallot: ElectionToolActions.createUpdateElectionAction,
+        onVerifyVoter: ElectionToolActions.createVerifyVoterAction,
+        onUpdateError: ElectionToolActions.createUpdateErrorAction,
     }, dispatch);
 
     useEffect(() => {
@@ -28,6 +34,9 @@ export function DisplayElectionsContainer() {
                 {...boundActions}
                 elections={elections}
                 currentElection={electionId}
+                authenticatedVoterId={authenticatedVoterId}
+                voters={voters}
+                errorId={errorId}
             />
 
 }
