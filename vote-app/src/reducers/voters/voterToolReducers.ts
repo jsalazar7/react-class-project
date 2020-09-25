@@ -16,7 +16,11 @@ import {
 import { Election } from '../../models/elections/Election';
 
 import {
-    SelectElectionAction, isSelectElectionAction, isCancelBallotAction
+    SelectElectionAction, isSelectElectionAction, isCancelBallotAction,
+    isRefreshElectionsRequestAction, isRefreshElectionsDoneAction, 
+    ShowElectionAction,
+    RefreshElectionsDoneAction,
+    isShowElectionAction,
 } from '../../actions/elections/ElectionsActions';
 
 const voterList: Voter[] = [
@@ -104,8 +108,32 @@ export const votersReducer: Reducer<Voter[], VotersReducerActions> = (voters = v
     return voters;
 };
 
-export const electionsReducer: Reducer<Election[], VotersReducerActions> = (elections = [], action) => {
-    return elections;
+
+type ShowElectionReducerActions = RefreshElectionsDoneAction | ShowElectionAction;
+
+export const showElectionReducer: Reducer<number, ShowElectionReducerActions> = (showElectionId = -1, action) => {
+
+  if (isShowElectionAction(action)) {
+    return action.payload.electionId;
+  }
+
+  if (isRefreshElectionsDoneAction(action)) {
+    return -1;
+  }
+
+  return showElectionId;
+}
+
+type ElectionReducerActions = RefreshElectionsDoneAction;
+
+export const electionsReducer: Reducer<Election[], ElectionReducerActions> = (elections = [], action) => {
+
+    // Once the refresh action is done, we will yoink the payload and update the state
+    if (isRefreshElectionsDoneAction(action)) {
+        return action.payload.elections;
+    }
+
+    return elections;
 };
 
 export const selectElectionReducer: Reducer<number, EditVoterIdReducerActions> = (electionId = 0, action) => {

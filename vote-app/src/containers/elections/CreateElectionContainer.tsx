@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -12,10 +12,17 @@ import { CreateElectionTool } from '../../components/elections/CreateElectionToo
 export function CreateElectionContainer() {
 
     const elections = useSelector<VoterToolState, Election[]>(state => state.elections);
-
+  
+    const dispatch = useDispatch();
+  
     const boundActions = bindActionCreators({
-        onAddElection: ElectionToolActions.createAppendElectionAction,
-    }, useDispatch());
+      onAddElection: ElectionToolActions.appendElection,
+      onShowElection: ElectionToolActions.createShowElectionAction,
+    }, dispatch);
+  
+    useEffect(() => {
+      dispatch(ElectionToolActions.refreshElections());
+    }, [dispatch]);
 
     return <CreateElectionTool {...boundActions} elections={elections} />;
 
