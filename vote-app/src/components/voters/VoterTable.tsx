@@ -8,7 +8,7 @@ import { VoterViewRow } from './VoterViewRow';
 
 import './VoterTool.css';
 
-import { AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai';
+import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai';
 
 export type VoterTableProps = {
     voters: Voter[],
@@ -29,7 +29,7 @@ type ColHeaderProps = {
 }
 
 function ColHeader(props: ColHeaderProps) {
-    const icon = props.votersSort.dir === 'asc' ? <AiOutlineArrowDown/> : <AiOutlineArrowUp/> ;
+    const icon = props.votersSort.dir === 'asc' ? <AiFillCaretDown/> : <AiFillCaretUp/> ;
     return (
         <th onClick={() => props.onClick(props.col)}>
             {props.votersSort.col === props.col && <span>{icon}</span>}
