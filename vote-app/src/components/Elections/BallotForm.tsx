@@ -23,7 +23,7 @@ export function BallotForm(props: BallotFormProps) {
         props.onCastVote(ballotForm.election);
         reset();
     };
-    setInputOnForm<number[]>('',[]);
+
 
     const onChoseQuestionResponse = (id:number, vote:boolean) => {
         //ballotForm.election.questions.map
