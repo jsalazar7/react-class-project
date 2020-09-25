@@ -23,10 +23,10 @@ export function Elections(props:ElectionsProps) {
 
     const verifyVoter = (id: number) => {
 
-        if (!props.voters.find(v => v.id == id)) {
+        if (!props.voters.find(v => v.id === id)) {
             props.onUpdateError(1);
         }
-        else if (props.elections.find(e => e.id == props.currentElection && e.voters.find(v => v == id))){
+        else if (props.elections.find(e => e.id === props.currentElection && e.voters.find(v => v === id))){
             props.onUpdateError(2);
         }
         else {
@@ -43,7 +43,7 @@ export function Elections(props:ElectionsProps) {
 
     if (props.currentElection !== 0) {
 
-        if (props.authenticatedVoterId == 0 && props.errorId == 0) {
+        if (props.authenticatedVoterId === 0 && props.errorId === 0) {
             // No one has authenticated, election selected
             result =
                 <VoterAuthForm
@@ -55,6 +55,9 @@ export function Elections(props:ElectionsProps) {
                 <>
                 <label>No voter was found with that id!</label>
                 <div>
+                    <Link to={"/elections"}>Select Election</Link>
+                </div>
+                <div>
                     <Link to={"/"}>Home</Link>
                 </div>
                 </>
@@ -63,6 +66,9 @@ export function Elections(props:ElectionsProps) {
             result =
                 <>
                 <label>Voter has already cast a ballot!</label>
+                <div>
+                    <Link to={"/elections"}>Select Election</Link>
+                </div>
                 <div>
                     <Link to={"/"}>Home</Link>
                 </div>
