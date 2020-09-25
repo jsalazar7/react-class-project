@@ -4,7 +4,11 @@ import { useForm } from '../../hooks/useForm';
 import { Ballot } from '../../models/elections/Ballot';
 import { Election } from '../../models/elections/Election';
 import { BallotRow } from './BallotRow';
+<<<<<<< HEAD
 import {ToolHeader} from "../ToolHeader";
+=======
+import { Route } from 'react-router-dom'
+>>>>>>> b9097ab31cd8e43b04b0438b144f328e77c07abd
 
 export type BallotFormProps = {
     election: Election,
@@ -22,12 +26,9 @@ export function BallotForm(props: BallotFormProps) {
         reset();
     };
 
-    const cancelVote = () => {
-        // TODO: Return back to home screen
-        reset();
-    };
 
     return (
+        <Route render={({ history}) => (
         <form>
             <ToolHeader headerText="Ballot Voting" />
             <table>
@@ -50,7 +51,7 @@ export function BallotForm(props: BallotFormProps) {
                 </tbody>
             </table>
             <button type="button" onClick={submitVote}>Submit</button>
-            <button type="button" onClick={cancelVote}>Cancel</button>
+            <button type="button" onClick={() => {reset();history.push('/');}}>Cancel</button>
         </form>
-    );
+    )}/>);
 }

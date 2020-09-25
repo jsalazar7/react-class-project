@@ -24,7 +24,7 @@ export function Elections(props:ElectionsProps) {
             />
             :
             <BallotForm
-                election={props.elections[props.currentElection]}
+                election={props.elections[props.currentElection-1]}
                 onCastVote={props.onCastBallot}
             />
          }
