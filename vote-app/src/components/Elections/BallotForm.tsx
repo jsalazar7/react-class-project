@@ -4,11 +4,8 @@ import { useForm } from '../../hooks/useForm';
 import { Ballot } from '../../models/elections/Ballot';
 import { Election } from '../../models/elections/Election';
 import { BallotRow } from './BallotRow';
-<<<<<<< HEAD
 import {ToolHeader} from "../ToolHeader";
-=======
 import { Route } from 'react-router-dom'
->>>>>>> b9097ab31cd8e43b04b0438b144f328e77c07abd
 
 export type BallotFormProps = {
     election: Election,
