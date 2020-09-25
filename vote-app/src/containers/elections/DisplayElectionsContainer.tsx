@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 
-import * as ElectionToolActions  from '../../actions/elections/ElectionsActions';
+import * as ElectionToolActions from '../../actions/elections/ElectionsActions';
+import {refreshVoters} from'../../actions/voters/voterToolActions';
 
 import { Election } from '../../models/elections/Election';
 import { VoterToolState } from '../../models/voters/VoterToolState';
@@ -28,6 +29,7 @@ export function DisplayElectionsContainer() {
 
     useEffect(() => {
         dispatch(ElectionToolActions.refreshElections());
+        dispatch(refreshVoters());
       }, [dispatch]);
 
     return <Elections
