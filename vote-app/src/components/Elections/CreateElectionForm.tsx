@@ -9,7 +9,7 @@ export type ElectionFormProps = {
     onSubmitElection: (electionForm: NewElection) => void,
 };
 
-export function ElectionForm(props: ElectionFormProps) {
+export function CreateElectionForm(props: ElectionFormProps) {
     
     // Handles changing the form inputs
     const [ electionForm, change, resetElectionForm, resetInputOnForm ] = useForm ({

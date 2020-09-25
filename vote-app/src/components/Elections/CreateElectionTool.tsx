@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { ToolHeader } from '../ToolHeader';
-// import { ElectionTable } from '../../models/ElectionTable';
-import { ElectionForm } from './CreateElectionForm';
+import { CreateElectionsTable } from './CreateElectionTable';
+import { CreateElectionForm } from './CreateElectionForm';
 
-import { Election, NewElection, ElectionKeys } from '../../models/elections/Election';
+import { Election, NewElection } from '../../models/elections/Election';
 
 export type ElectionToolProps = {
     elections: Election[],
@@ -16,8 +16,8 @@ export function CreateElectionTool(props: ElectionToolProps) {
     return (
         <>
             <ToolHeader headerText="Election Tool" />
-            {/* <ElectionTable elections={props.elections} /> */}
-            <ElectionForm buttonText="Add Election" onSubmitElection={props.onAddElection} />
+            <CreateElectionsTable elections={props.elections} />
+            <CreateElectionForm buttonText="Add Election" onSubmitElection={props.onAddElection} />
         </>
     );
 }

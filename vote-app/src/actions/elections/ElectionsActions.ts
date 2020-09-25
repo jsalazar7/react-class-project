@@ -1,4 +1,4 @@
-import { Action } from 'redux';
+import { Action, Dispatch } from 'redux';
 
 import { Election, NewElection, ElectionKeys } from '../../models/elections/Election';
 import { Ballot } from '../../models/elections/Ballot';
@@ -8,6 +8,14 @@ export const APPEND_ELECTION_ACTION = 'APPEND_ELECTION';
 export const UPDATE_ELECTION_ACTION = 'UPDATE_ELECTION';
 export const SELECT_ELECTION_ACTION = 'SELECT_ELECTION';
 export const CANCEL_BALLOT_ACTION = 'CANCEL_BALLOT';
+
+export const REFRESH_ELECTION_REQUEST_ACTION = 'REFRESH_ELECTION_REQUEST_ACTION';
+export const REFRESH_ELECTION_DONE_ACTION = 'REFRESH_ELECTION_DONE_ACTION';
+
+export const APPEND_ELECTION_REQUEST_ACTION = 'APPEND_ELECTION_REQUEST_ACTION';
+export const APPEND_ELECTION_DONE_ACTION = 'APPEND_ELECTION_DONE_ACTION';
+
+export const VIEW_ELECTION_QUESTIONS_ACTION = 'VIEW_ELECTION_QUESTIONS_ACTION';
 
 // New Election Action
 
@@ -68,3 +76,95 @@ export function isCancelBallotAction(action: Action<string>): action is CancelBa
     type: CANCEL_BALLOT_ACTION,
   });
 // End Cancel Ballot Action
+
+// Refresh Elections Action
+
+export type RefreshElectionsRequestAction = Action<string>;
+
+export interface RefreshElectionsDoneAction extends Action<string> {
+  payload: { elections: Election[] }
+}
+
+export type CreateRefreshElectionsRequestAction = () => RefreshElectionsRequestAction;
+export type CreateRefreshElectionsDoneAction = (elections: Election[]) => RefreshElectionsDoneAction;
+
+export function isRefreshElectionsRequestAction(action: Action<string>): action is RefreshElectionsRequestAction {
+  return REFRESH_ELECTION_REQUEST_ACTION === action.type;
+}
+
+export function isRefreshElectionsDoneAction(action: Action<string>): action is RefreshElectionsDoneAction {
+  return REFRESH_ELECTION_DONE_ACTION === action.type;
+}
+
+export const createRefreshElectionsRequestAction: CreateRefreshElectionsRequestAction = () => ({
+  type: REFRESH_ELECTION_REQUEST_ACTION,
+});
+
+export const createRefreshElectionsDoneAction: CreateRefreshElectionsDoneAction = (elections: Election[]) => ({
+  type: REFRESH_ELECTION_DONE_ACTION, payload: { elections }
+});
+
+export const refreshElections = () => {
+
+    // this is the function object which is dispatched
+    return async (dispatch: Dispatch) => {
+        dispatch(createRefreshElectionsRequestAction());
+        const res = await fetch('http://localhost:3060/elections');
+        const elections = await res.json();
+        dispatch(createRefreshElectionsDoneAction(elections));
+    };
+
+};
+
+// End Refresh Elections Action
+
+// New Election Action
+
+export interface AppendElectionRequestAction extends Action<string> {
+    payload: { election: NewElection }
+}
+  
+export type CreateAppendElectionRequestAction = (election: NewElection) => AppendElectionRequestAction
+  
+export function isAppendElectionRequestAction(action: Action<string>): action is AppendElectionRequestAction {
+    return APPEND_ELECTION_REQUEST_ACTION === action.type;
+}
+  
+export const createAppendElectionRequestAction: CreateAppendElectionRequestAction = (election) => ({
+    type: APPEND_ELECTION_REQUEST_ACTION, payload: { election },
+});
+  
+export const appendElection = (election: NewElection) => {
+  
+    return async (dispatch: Dispatch) => {
+        dispatch(createAppendElectionRequestAction(election));
+        await fetch('http://localhost:3060/elections', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(election),
+        });
+        refreshElections()(dispatch);
+    };
+  
+};
+  
+// End New Election Action
+
+// Show Election Action
+
+export interface ShowElectionAction extends Action<string> {
+    payload: { electionId: number }
+  }
+  
+export type CreateShowElectionAction = (electionId: number) => ShowElectionAction
+  
+export function isShowElectionAction(action: Action<string>): action is ShowElectionAction {
+    return action.type === VIEW_ELECTION_QUESTIONS_ACTION;
+}
+  
+  
+export const createShowElectionAction: CreateShowElectionAction = (electionId) => ({
+    type: VIEW_ELECTION_QUESTIONS_ACTION, payload: { electionId },
+});
+  
+// End Show Election Election
