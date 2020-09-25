@@ -10,6 +10,7 @@ export type BallotFormProps = {
     election: Election,
     voterId: number,
     onCastVote: (election: Election) => void,
+    onCancel: () => void
 };
 
 export function BallotForm(props: BallotFormProps) {
@@ -51,7 +52,7 @@ export function BallotForm(props: BallotFormProps) {
                 </tbody>
             </table>
             <button type="button" onClick={submitVote}>Submit</button>
-            <button type="button" onClick={() => history.push('/')}>Cancel</button>
+            <button type="button" onClick={() => {props.onCancel();history.push('/');}}>Cancel</button>
         </form>
     )}/>);
 }

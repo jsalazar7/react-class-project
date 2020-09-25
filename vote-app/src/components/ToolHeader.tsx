@@ -17,12 +17,13 @@ export function ToolHeader(props: ToolHeaderProps) {
             </div>
             <br></br>
             <img src={logo} alt="Logo" />
+            <div>
             <h4>Team: Vote Nin-JS</h4>
-            <h5>JS Do It!</h5>
-                <Jumbotron>
+            <h5>JS Do It</h5>
+            </div>
+            <Jumbotron>
                 <h1>{props.headerText}</h1>
             </Jumbotron>
-            
         </header>
     );
 }
