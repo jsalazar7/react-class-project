@@ -24,7 +24,6 @@ export function BallotForm(props: BallotFormProps) {
         reset();
     };
 
-
     const onChoseQuestionResponse = (id:number, vote:boolean) => {
         //ballotForm.election.questions.map
     };

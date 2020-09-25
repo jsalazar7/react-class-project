@@ -1,7 +1,6 @@
 import { Action, Dispatch } from 'redux';
 
-import { Election, NewElection, ElectionKeys } from '../../models/elections/Election';
-import { Ballot } from '../../models/elections/Ballot';
+import { Election, NewElection } from '../../models/elections/Election';
 
 
 export const APPEND_ELECTION_ACTION = 'APPEND_ELECTION';
