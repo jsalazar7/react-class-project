@@ -1,0 +1,213 @@
+{
+  "voters": [
+    {
+      "firstName": "Annette",
+      "lastName": "Beatty2",
+      "address": "123 Beach Ave",
+      "city": "San Diego",
+      "birthday": 10101988,
+      "email": "a@gmail.com",
+      "phone": 8881111212,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "firstName": "Jorge",
+      "lastName": "Salazar",
+      "address": "234 Beach Ave",
+      "city": "San Diego",
+      "birthday": 12202004,
+      "email": "b2@gmail.com",
+      "phone": 8881111212
+    },
+    {
+      "id": 4,
+      "firstName": "Eldin",
+      "lastName": "Turulja",
+      "address": "234 Beach Ave",
+      "city": "San Diego",
+      "birthday": 9081992,
+      "email": "fred@gmail.com",
+      "phone": 8888881212
+    },
+    {
+      "firstName": "Babu",
+      "lastName": "Raju",
+      "address": "234 Beach Ave",
+      "city": "Boise",
+      "birthday": 10052001,
+      "email": "b@gmail.com",
+      "phone": 1112222323,
+      "id": 5
+    }
+  ],
+  "elections": [
+    {
+      "id": 1,
+      "title": "Animal Elections",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Do you like dogs?",
+          "yes": 1
+        },
+        {
+          "id": 2,
+          "question": "Do you like cats?",
+          "yes": 0
+        },
+        {
+          "id": 3,
+          "question": "Do you like snakes?",
+          "yes": 1
+        }
+      ],
+      "voters": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Food Election",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Do you like pizza?",
+          "yes": 0
+        },
+        {
+          "id": 2,
+          "question": "Do you like burritos?",
+          "yes": 0
+        },
+        {
+          "id": 3,
+          "question": "Do you like suhsi?",
+          "yes": 0
+        }
+      ],
+      "voters": []
+    },
+    {
+      "title": "Fred",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Do you like fred",
+          "yes": 0
+        },
+        {
+          "id": 2,
+          "question": "Do you like Ethel",
+          "yes": 0
+        }
+      ],
+      "voters": [],
+      "id": 3
+    },
+    {
+      "title": "",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Do you like ethel",
+          "yes": 0
+        },
+        {
+          "id": 2,
+          "question": "do you like fred",
+          "yes": 0
+        }
+      ],
+      "voters": [],
+      "id": 4
+    },
+    {
+      "title": "adsfa",
+      "questions": [
+        {
+          "id": 1,
+          "question": "asfdsa",
+          "yes": 0
+        },
+        {
+          "id": 2,
+          "question": "adsfdsa",
+          "yes": 0
+        }
+      ],
+      "voters": [],
+      "id": 5
+    },
+    {
+      "title": "adfsa",
+      "questions": [
+        {
+          "id": 1,
+          "question": "asdfdas",
+          "yes": 0
+        },
+        {
+          "id": 2,
+          "question": "adfsda",
+          "yes": 0
+        }
+      ],
+      "voters": [],
+      "id": 6
+    },
+    {
+      "title": "",
+      "questions": [
+        {
+          "id": 1,
+          "question": "asa",
+          "yes": 0
+        },
+        {
+          "id": 2,
+          "question": "asda",
+          "yes": 0
+        }
+      ],
+      "voters": [],
+      "id": 7
+    },
+    {
+      "title": "asdsdf",
+      "questions": [],
+      "voters": [],
+      "id": 8
+    },
+    {
+      "title": "afddsa",
+      "questions": [],
+      "voters": [],
+      "id": 9
+    },
+    {
+      "title": "Fred",
+      "questions": [
+        {
+          "id": 1,
+          "question": "asfdsa",
+          "yes": 0
+        },
+        {
+          "id": 2,
+          "question": "asfdas",
+          "yes": 0
+        }
+      ],
+      "voters": [],
+      "id": 10
+    },
+    {
+      "title": "",
+      "questions": [],
+      "voters": [],
+      "id": 11
+    }
+  ]
+}
