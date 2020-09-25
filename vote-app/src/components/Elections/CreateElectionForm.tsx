@@ -61,7 +61,7 @@ export function CreateElectionForm(props: ElectionFormProps) {
                         </thead>
                         <tbody>
                             {questions.map(question => 
-                                <tr>
+                                <tr key={question.id}>
                                     <td>{question.id}</td>
                                     <td>{question.question}</td>
                                 </tr>

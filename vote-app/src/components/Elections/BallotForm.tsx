@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from '../../hooks/useForm';
 import { Election } from '../../models/elections/Election';
 import { BallotRow } from './BallotRow';
@@ -17,16 +17,29 @@ export function BallotForm(props: BallotFormProps) {
 
     const [ ballotForm, change, reset, resetOne, setInputOnForm ] = useForm ({
         ...props,
-        votes: Array<number>(props.election.questions.length).fill(0)
     });
 
+    const [ ballotVotes, setBallotVotes ] = useState(Array<number>(props.election.questions.length).fill(0));
+
     const submitVote = () => {
+        let newElection = {...ballotForm.election};
+        newElection.questions.map(question => {
+            if (ballotVotes[question.id - 1] === 1) {
+                question.yes += 1;
+            }
+            return question;
+        });
+        newElection.voters.push(Number(props.voterId));
         props.onCastVote(ballotForm.election);
         reset();
     };
 
     const onChoseQuestionResponse = (id:number, vote:boolean) => {
-        //ballotForm.election.questions.map
+        let newBallotVotes = ballotVotes.concat();
+
+        // The vote is either a 1 if the box is checked or 0 if not
+        newBallotVotes[id-1] = vote ? 1 : 0; 
+        setBallotVotes(newBallotVotes);
     };
 
     return (

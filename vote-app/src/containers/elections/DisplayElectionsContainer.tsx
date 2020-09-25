@@ -22,7 +22,7 @@ export function DisplayElectionsContainer() {
 
     const boundActions = bindActionCreators({
         onSelectElection: ElectionToolActions.creatSelectElectionAction,
-        onCastBallot: ElectionToolActions.createUpdateElectionAction,
+        onCastBallot: ElectionToolActions.updateElection,
         onVerifyVoter: ElectionToolActions.createVerifyVoterAction,
         onUpdateError: ElectionToolActions.createUpdateErrorAction,
     }, dispatch);
