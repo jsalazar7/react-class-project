@@ -16,16 +16,16 @@ export function Elections(props:ElectionsProps) {
     return (
         <>
          {
-            // props.currentElection === 0 ?
+            props.currentElection === 0 ?
             <ElectionsTable
                 elections={props.elections}
                 onSelectElection={props.onSelectElection}
             />
-            // :
-            // <BallotForm
-            //     election={props.elections[props.currentElection]}
-            //     onCastVote={props.onCastBallot}
-            // />
+            :
+            <BallotForm
+                election={props.elections[props.currentElection]}
+                onCastVote={props.onCastBallot}
+            />
          }
         </>
     );
