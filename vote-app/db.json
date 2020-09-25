@@ -1,14 +1,14 @@
 {
   "voters": [
     {
-      "id": 1,
       "firstName": "Annette",
-      "lastName": "Beatty",
+      "lastName": "Beatty2",
       "address": "123 Beach Ave",
       "city": "San Diego",
       "birthday": "2/2/2020",
       "email": "a@gmail.com",
-      "phone": "(888) 888-1111"
+      "phone": "(888) 888-1111",
+      "id": 1
     },
     {
       "id": 2,
@@ -17,18 +17,8 @@
       "address": "234 Beach Ave",
       "city": "San Diego",
       "birthday": "2/2/2020",
-      "email": "b@gmail.com",
+      "email": "b2@gmail.com",
       "phone": "(888) 888-2222"
-    },
-    {
-      "id": 3,
-      "firstName": "Babu",
-      "lastName": "Raju",
-      "address": "345 Beach Ave",
-      "city": "San Diego",
-      "birthday": "2/2/2020",
-      "email": "c@gmail.com",
-      "phone": "(888) 888-3333"
     },
     {
       "id": 4,
@@ -39,12 +29,22 @@
       "birthday": "2/2/2020",
       "email": "b@gmail.com",
       "phone": "(888) 888-2222"
+    },
+    {
+      "firstName": "Babu",
+      "lastName": "Raju",
+      "address": "234 Beach Ave",
+      "city": "Boise",
+      "birthday": 0,
+      "email": "",
+      "phone": 0,
+      "id": 5
     }
   ],
   "elections": [
     {
       "id": 1,
-      "title": "Animal Election",
+      "title": "Animal Elections",
       "questions": [
         {
           "id": 1,
@@ -88,23 +88,6 @@
         }
       ],
       "voters": []
-    },
-    {
-      "title": "",
-      "questions": [
-        {
-          "id": 1,
-          "question": "Do you like San Diego",
-          "yes": 0
-        },
-        {
-          "id": 2,
-          "question": "Do you like Los Angeles",
-          "yes": 0
-        }
-      ],
-      "voters": [],
-      "id": 3
     }
   ]
 }

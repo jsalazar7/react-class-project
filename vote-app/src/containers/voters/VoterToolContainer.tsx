@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -10,8 +10,7 @@ import { VoterToolState } from '../../models/voters/VoterToolState';
 import { VoterTool } from '../../components/voters/VoterTool';
 
 const sortedVoters = (voters: Voter[], votersSort: VotersSort) => {
-    // we will improve the typing of this code as part of class tomorrow...
-    // return voters.concat().sort( (a: any, b: any) => {
+
     return voters.concat().sort( (a: Voter, b: Voter) => {
 
         const left = String(a[votersSort.col]).toUpperCase();
@@ -34,14 +33,20 @@ export function VoterToolContainer() {
     const editVoterId = useSelector<VoterToolState, number>(state => state.editVoterId);
     const votersSort = useSelector<VoterToolState, VotersSort>(state => state.votersSort);
 
+    const dispatch = useDispatch();
+
     const boundActions = bindActionCreators({
-        onAddVoter: VoterToolActions.createAppendVoterAction,
-        onSaveVoter: VoterToolActions.createReplaceVoterAction,
-        onDeleteVoter: VoterToolActions.createRemoveVoterAction,
+        onAddVoter: VoterToolActions.appendVoter,
+        onSaveVoter: VoterToolActions.editVoter,
+        onDeleteVoter: VoterToolActions.deleteVoter,
         onEditVoter: VoterToolActions.createEditVoterAction,
         onCancelVoter: VoterToolActions.createCancelVoterAction,
         onSortVoters: VoterToolActions.createSortVotersAction,
-    }, useDispatch());
+    }, dispatch);
+
+    useEffect(() => {
+        dispatch(VoterToolActions.refreshVoters())
+      }, [dispatch]);
 
     return <VoterTool {...boundActions} voters={voters} editVoterId={editVoterId} votersSort={votersSort} />;
 
