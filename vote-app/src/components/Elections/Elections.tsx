@@ -57,6 +57,8 @@ export function Elections(props:ElectionsProps) {
         }
         else {
             // Election selected, valid user
+            console.log(`Election: ${props.currentElection}`);
+            console.dir(props.elections);
             result =
             <BallotForm
                 election={props.elections[props.currentElection-1]}
