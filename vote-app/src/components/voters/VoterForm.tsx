@@ -28,6 +28,7 @@ export function VoterForm(props: VoterFormProps) {
         <form>
             <br></br>
             <br></br>
+            <h1> Voter Registration Form </h1>
             <ul>
                 <li>
                     <label>
