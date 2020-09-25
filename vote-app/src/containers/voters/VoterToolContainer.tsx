@@ -36,9 +36,9 @@ export function VoterToolContainer() {
     const dispatch = useDispatch();
 
     const boundActions = bindActionCreators({
-        onAddVoter: VoterToolActions.createAppendVoterAction,
-        onSaveVoter: VoterToolActions.createReplaceVoterAction,
-        onDeleteVoter: VoterToolActions.createRemoveVoterAction,
+        onAddVoter: VoterToolActions.appendVoter,
+        onSaveVoter: VoterToolActions.editVoter,
+        onDeleteVoter: VoterToolActions.deleteVoter,
         onEditVoter: VoterToolActions.createEditVoterAction,
         onCancelVoter: VoterToolActions.createCancelVoterAction,
         onSortVoters: VoterToolActions.createSortVotersAction,

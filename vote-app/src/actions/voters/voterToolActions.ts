@@ -142,3 +142,52 @@ export const refreshVoters = () => {
 };
 
 // End Refresh voters Action
+
+
+export const appendVoter = (voter: NewVoter) => {
+
+    return async (dispatch: Dispatch) => {
+
+      dispatch(createAppendVoterAction(voter));
+
+      await fetch('http://localhost:3060/voters', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(voter),
+      });
+
+      refreshVoters()(dispatch);
+    };
+};
+
+
+export const editVoter = (voter: Voter) => {
+
+    return async (dispatch: Dispatch) => {
+
+      dispatch(createReplaceVoterAction(voter));
+
+      await fetch(`http://localhost:3060/voters/${voter.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(voter),
+      });
+
+      refreshVoters()(dispatch);
+    };
+};
+
+export const deleteVoter = (voterId: number) => {
+
+    return async (dispatch: Dispatch) => {
+
+      dispatch(createRemoveVoterAction(voterId));
+
+      await fetch(`http://localhost:3060/voters/${voterId}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      refreshVoters()(dispatch);
+    };
+};
