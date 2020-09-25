@@ -21,7 +21,7 @@
       "phone": 8881111212
     },
     {
-      "id": 4,
+      "id": 3,
       "firstName": "Eldin",
       "lastName": "Turulja",
       "address": "234 Beach Ave",
@@ -38,7 +38,7 @@
       "birthday": 10052001,
       "email": "b@gmail.com",
       "phone": 1112222323,
-      "id": 5
+      "id": 4
     }
   ],
   "elections": [
@@ -49,12 +49,12 @@
         {
           "id": 1,
           "question": "Do you like dogs?",
-          "yes": 1
+          "yes": 2
         },
         {
           "id": 2,
           "question": "Do you like cats?",
-          "yes": 0
+          "yes": 1
         },
         {
           "id": 3,
@@ -64,7 +64,9 @@
       ],
       "voters": [
         1,
-        2
+        2,
+        3,
+        4
       ]
     },
     {
@@ -90,20 +92,22 @@
       "voters": []
     },
     {
-      "title": "Fred",
+      "title": "Honeymooners Election",
       "questions": [
         {
           "id": 1,
-          "question": "Do you like fred",
-          "yes": 0
+          "question": "Do you like Ralph?",
+          "yes": 1
         },
         {
           "id": 2,
-          "question": "Do you like Ethel",
+          "question": "Do you like Alice?",
           "yes": 0
         }
       ],
-      "voters": [],
+      "voters": [
+        1
+      ],
       "id": 3
     }
   ]
