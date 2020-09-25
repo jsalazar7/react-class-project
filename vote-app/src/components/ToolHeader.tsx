@@ -14,10 +14,12 @@ export function ToolHeader(props: ToolHeaderProps) {
         <header>
             <div id="link">
             <Link to={"/"}>Home</Link>
-            
             </div>
-            <img src={logo} alt="Logo" />;
-            <Jumbotron>
+            <br></br>
+            <img src={logo} alt="Logo" />
+            <h4>Team: Vote Nin-JS</h4>
+            <h5>JS Do It!</h5>
+                <Jumbotron>
                 <h1>{props.headerText}</h1>
             </Jumbotron>
             
