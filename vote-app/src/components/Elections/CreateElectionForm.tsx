@@ -42,6 +42,7 @@ export function CreateElectionForm(props: ElectionFormProps) {
 
     return (
         <form>
+            <h1> Election Creation Form </h1>
             <ul>
                 <li>
                     <label>

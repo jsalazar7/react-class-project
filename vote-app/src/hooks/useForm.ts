@@ -28,7 +28,10 @@ export const useForm: UseForm = (initialForm) => {
 
     const resetForm = () => setForm({ ...initialForm});
 
-    const resetInputOnForm = (input: string) => setForm({ ...initialForm, [ input ]: ''});
+    const resetInputOnForm = (input: string) => setForm({
+         ...form, 
+         [ input ]: '',
+    });
     const setInputOnForm = <T>(input: string, val:T) => setForm({ ...initialForm, [ input ]: val});
 
     return [ form, change, resetForm, resetInputOnForm, setInputOnForm ];

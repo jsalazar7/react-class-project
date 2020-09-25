@@ -19,7 +19,7 @@ export function CreateElectionQuestionsViewRow({election, shownElectionId, onSho
                 <td>{election.id}</td>
                 <td>{election.title}</td>
                 <td>{election.voters.length}</td>
-                <td><button onClick={hideElection}>Hide Votes</button></td>
+                <td><button onClick={hideElection}>Hide Results</button></td>
             </tr>
             <tr>
                 <table>
