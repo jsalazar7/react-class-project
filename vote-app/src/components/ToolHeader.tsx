@@ -16,7 +16,7 @@ export function ToolHeader(props: ToolHeaderProps) {
             <Link to={"/"}>Home</Link>
             
             </div>
-            <img src={logo} alt="Logo" />;
+            <img src={logo} alt="Logo" />
             <Jumbotron>
                 <h1>{props.headerText}</h1>
             </Jumbotron>
