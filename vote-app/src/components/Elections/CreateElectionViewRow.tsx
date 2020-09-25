@@ -19,7 +19,7 @@ export function CreateElectionViewRow({election, shownElectionId, onShowElection
             <td>{election.id}</td>
             <td>{election.title}</td>
             <td>{election.voters.length}</td>
-            <td><button onClick={showElection}>Show Votes</button></td>
+            <td><button onClick={showElection}>View Results</button></td>
         </tr>
         <tr>
             {election.id === shownElectionId ?

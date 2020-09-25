@@ -19,9 +19,9 @@ export function CreateElectionQuestionsViewRow({election, shownElectionId, onSho
                 <td>{election.id}</td>
                 <td>{election.title}</td>
                 <td>{election.voters.length}</td>
-                <td><button onClick={hideElection}>Hide Votes</button></td>
+                <td><button onClick={hideElection}>Hide Results</button></td>
             </tr>
-            <tr>
+            <tr><td>
                 <table>
                     <thead>
                         <tr>
@@ -33,7 +33,7 @@ export function CreateElectionQuestionsViewRow({election, shownElectionId, onSho
                     </thead>
                     <tbody>
                         {election.questions.map(question =>
-                            <tr>
+                            <tr key={question.id}>
                                 <td>{question.id}</td>
                                 <td>{question.question}</td>
                                 <td>{question.yes}</td>
@@ -42,7 +42,7 @@ export function CreateElectionQuestionsViewRow({election, shownElectionId, onSho
                         )}
                     </tbody>
                 </table>
-            </tr>
+            </td></tr>
         </ >
     );
 
