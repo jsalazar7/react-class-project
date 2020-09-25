@@ -4,6 +4,7 @@ import { useForm } from '../../hooks/useForm';
 import { Ballot } from '../../models/elections/Ballot';
 import { Election } from '../../models/elections/Election';
 import { BallotRow } from './BallotRow';
+import {ToolHeader} from "../ToolHeader";
 
 export type BallotFormProps = {
     election: Election,
@@ -28,6 +29,7 @@ export function BallotForm(props: BallotFormProps) {
 
     return (
         <form>
+            <ToolHeader headerText="Ballot Voting" />
             <table>
                 <thead>
                     <tr>

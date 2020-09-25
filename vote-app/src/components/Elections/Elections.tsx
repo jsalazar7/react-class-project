@@ -3,6 +3,7 @@ import { ElectionsTable } from './ElectionsTable';
 import { BallotForm } from './BallotForm';
 import { Election } from '../../models/elections/Election';
 import { Ballot } from '../../models/elections/Ballot';
+import {ToolHeader} from "../ToolHeader";
 
 export type ElectionsProps = {
     elections: Election[],
