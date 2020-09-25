@@ -32,6 +32,7 @@ export function BallotForm(props: BallotFormProps) {
         newElection.voters.push(Number(props.voterId));
         props.onCastVote(ballotForm.election);
         reset();
+        props.onCancel();
     };
 
     const onChoseQuestionResponse = (id:number, vote:boolean) => {
