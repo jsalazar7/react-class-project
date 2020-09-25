@@ -9,20 +9,20 @@ header {
 }
 
 .jumbotron h1 {
-    color: coral;
+    font-size: 50px;
 }
 
 .link a {
     background: black;
 }
 
-h5 {
+h5, h4 {
     color: coral;
 }
 
 img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     border-radius: 8px;
     padding: 15px;
 }
