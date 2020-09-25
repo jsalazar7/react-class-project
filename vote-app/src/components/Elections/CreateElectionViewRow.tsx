@@ -3,10 +3,15 @@ import { Election } from '../../models/elections/Election';
 
 export type CreateElectionViewRowProps = {
     election: Election,
-    showElectionId: number,
+    shownElectionId: number,
+    onShowElection: (electionId: number) => void,
 };
 
-export function CreateElectionViewRow({election, showElectionId}: CreateElectionViewRowProps) {
+export function CreateElectionViewRow({election, shownElectionId, onShowElection}: CreateElectionViewRowProps) {
+
+    const showElection = () => {
+        onShowElection(election.id);
+    }
 
     return (
     <>
@@ -14,10 +19,10 @@ export function CreateElectionViewRow({election, showElectionId}: CreateElection
             <td>{election.id}</td>
             <td>{election.title}</td>
             <td>{election.voters.length}</td>
-            <td><button>Show Votes</button></td>
+            <td><button onClick={showElection}>Show Votes</button></td>
         </tr>
         <tr>
-            {election.id === showElectionId ?
+            {election.id === shownElectionId ?
                 <tr>
                     <table>
                         <thead>

@@ -12,6 +12,7 @@ import { CreateElectionTool } from '../../components/elections/CreateElectionToo
 export function CreateElectionContainer() {
 
     const elections = useSelector<VoterToolState, Election[]>(state => state.elections);
+    const shownElectionId = useSelector<VoterToolState, number>(state => state.shownElectionId);
   
     const dispatch = useDispatch();
   
@@ -24,6 +25,6 @@ export function CreateElectionContainer() {
       dispatch(ElectionToolActions.refreshElections());
     }, [dispatch]);
 
-    return <CreateElectionTool {...boundActions} elections={elections} />;
+    return <CreateElectionTool {...boundActions} elections={elections} shownElectionId={shownElectionId}/>;
 
 }

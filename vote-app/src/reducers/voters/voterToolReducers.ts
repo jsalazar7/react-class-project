@@ -55,7 +55,7 @@ export const votersSortReducer: Reducer<VotersSort, SortVotersAction> = (votersS
     return votersSort;
 };
 
-type EditVoterIdReducerActions = NewVoterAction | ExistingVoterAction | VoterIdAction | VoterAction | SelectElectionAction;
+type EditVoterIdReducerActions = NewVoterAction | ExistingVoterAction | VoterIdAction | VoterAction | SelectElectionAction |  ShowElectionAction;
 
 export const editVoterIdReducer: Reducer<number, EditVoterIdReducerActions> = (editVoterId = -1, action) => {
 
@@ -109,16 +109,12 @@ export const votersReducer: Reducer<Voter[], VotersReducerActions> = (voters = v
 };
 
 
-type ShowElectionReducerActions = RefreshElectionsDoneAction | ShowElectionAction;
+type ShowElectionReducerActions = VoterAction |  ShowElectionAction;
 
-export const showElectionReducer: Reducer<number, ShowElectionReducerActions> = (showElectionId = -1, action) => {
+export const showElectionReducer: Reducer<number, ShowElectionReducerActions > = (showElectionId = -1, action) => {
 
   if (isShowElectionAction(action)) {
     return action.payload.electionId;
-  }
-
-  if (isRefreshElectionsDoneAction(action)) {
-    return -1;
   }
 
   return showElectionId;
@@ -154,4 +150,5 @@ export const voterToolReducer: Reducer<VoterToolState, AnyAction> = combineReduc
     voters: votersReducer,
     elections: electionsReducer,
     currentElectionId: selectElectionReducer,
+    shownElectionId: showElectionReducer,
 });
