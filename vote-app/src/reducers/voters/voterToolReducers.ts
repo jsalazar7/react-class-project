@@ -11,13 +11,13 @@ import {
 
 import {
     SortVotersAction, NewVoterAction, ExistingVoterAction,
-    VoterIdAction, VoterAction, isVoterIdAction, RefreshVotersDoneAction
+    VoterIdAction, VoterAction, isVoterIdAction
 } from '../../actions/voters/voterToolActions';
 import { Election } from '../../models/elections/Election';
 
 import {
     SelectElectionAction, isSelectElectionAction, isCancelBallotAction,
-    isRefreshElectionsRequestAction, isRefreshElectionsDoneAction, 
+    isRefreshElectionsDoneAction, 
     ShowElectionAction,
     RefreshElectionsDoneAction,
     isShowElectionAction,

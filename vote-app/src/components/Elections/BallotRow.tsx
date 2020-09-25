@@ -1,5 +1,5 @@
 import React from 'react';
-import { Election, QuestionEntry } from '../../models/elections/Election';
+import { QuestionEntry } from '../../models/elections/Election';
 
 export type BallotRowProps = {
     question: QuestionEntry,
