@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { useForm } from '../../hooks/useForm';
-import { Ballot } from '../../models/elections/Ballot';
 import { Election } from '../../models/elections/Election';
 import { BallotRow } from './BallotRow';
 import {ToolHeader} from "../ToolHeader";
@@ -9,20 +8,26 @@ import { Route } from 'react-router-dom'
 
 export type BallotFormProps = {
     election: Election,
-    onCastVote: (ballot: Ballot) => void,
+    voterId: number,
+    onCastVote: (election: Election) => void,
 };
 
 export function BallotForm(props: BallotFormProps) {
 
-    const [ ballotForm, change, reset ] = useForm ({
-        electionId: 0, voterId: 0, votes: [],
+    const [ ballotForm, change, reset, resetOne, setInputOnForm ] = useForm ({
+        ...props,
+        votes: Array<number>(props.election.questions.length).fill(0)
     });
 
     const submitVote = () => {
-        props.onCastVote({...ballotForm});
+        props.onCastVote(ballotForm.election);
         reset();
     };
+    setInputOnForm<number[]>('',[]);
 
+    const onChoseQuestionResponse = (id:number, vote:boolean) => {
+        //ballotForm.election.questions.map
+    };
 
     return (
         <Route render={({ history}) => (
@@ -40,15 +45,14 @@ export function BallotForm(props: BallotFormProps) {
                         <BallotRow
                             key={`${props.election.id}-${question.id}`}
                             question={question}
-                            onVote={(id, s)=>{console.log(`Question: ${id} - ${s}`)}}
+                            onVote={onChoseQuestionResponse}
                         />
-
                     )
                 }
                 </tbody>
             </table>
             <button type="button" onClick={submitVote}>Submit</button>
-            <button type="button" onClick={() => {reset();history.push('/');}}>Cancel</button>
+            <button type="button" onClick={() => history.push('/')}>Cancel</button>
         </form>
     )}/>);
 }

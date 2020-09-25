@@ -20,7 +20,9 @@ import {
     isRefreshElectionsRequestAction, isRefreshElectionsDoneAction, 
     ShowElectionAction,
     RefreshElectionsDoneAction,
-    isShowElectionAction
+    isShowElectionAction,
+    isVerifyVoterAction, isUpdateErrorAction
+
 } from '../../actions/elections/ElectionsActions';
 
 export const votersSortReducer: Reducer<VotersSort, SortVotersAction> = (votersSort = { col:'id', dir: 'asc' }, action) => {
@@ -44,7 +46,7 @@ export const votersSortReducer: Reducer<VotersSort, SortVotersAction> = (votersS
     return votersSort;
 };
 
-type EditVoterIdReducerActions = NewVoterAction | ExistingVoterAction | VoterIdAction | VoterAction | SelectElectionAction |  ShowElectionAction;
+type EditVoterIdReducerActions = NewVoterAction | ExistingVoterAction | VoterIdAction | VoterAction | SelectElectionAction | ShowElectionAction;
 
 export const editVoterIdReducer: Reducer<number, EditVoterIdReducerActions> = (editVoterId = -1, action) => {
 
@@ -137,6 +139,25 @@ export const selectElectionReducer: Reducer<number, EditVoterIdReducerActions> =
     return electionId;
 }
 
+export const authenticateVoterReducer: Reducer<number, EditVoterIdReducerActions> = (userId = 0, action) => {
+
+    if (isVerifyVoterAction(action)) {
+      return action.payload.voterId;
+    }
+
+
+    return userId;
+}
+
+export const updateErrorReducer: Reducer<number, EditVoterIdReducerActions> = (errorId = 0, action) => {
+
+    if (isUpdateErrorAction(action)) {
+      return action.payload.errorId;
+    }
+
+    return errorId;
+}
+
 export const voterToolReducer: Reducer<VoterToolState, AnyAction> = combineReducers({
     votersSort: votersSortReducer,
     editVoterId: editVoterIdReducer,
@@ -144,4 +165,6 @@ export const voterToolReducer: Reducer<VoterToolState, AnyAction> = combineReduc
     elections: electionsReducer,
     currentElectionId: selectElectionReducer,
     shownElectionId: showElectionReducer,
+    authenticatedVoterId: updateErrorReducer,
+    errorId: updateErrorReducer,
 });

@@ -13,8 +13,10 @@ export function BallotRow(props: BallotRowProps) {
             <td>{props.question.id}</td>
             <td>{props.question.question}</td>
             <td>
-                <input type="checkbox"
-                        onChange={(e) => props.onVote(props.question.id, e.target.checked)}
+                <input
+                    type="checkbox"
+                    name=''
+                    onChange={(e) => props.onVote(props.question.id, e.target.checked)}
                 />
             </td>
         </tr>
