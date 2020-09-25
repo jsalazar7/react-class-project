@@ -1,4 +1,13 @@
 
-Jumbotron > .h1, h1{
-    text.align: center;
+.jumbotron {
+    background-color:transparent !important;
+    text-align: center;
+}
+
+header {
+    background: aqua;
+}
+
+.jumbotron h1 {
+    color: coral;
 }
