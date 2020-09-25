@@ -139,14 +139,13 @@ export const selectElectionReducer: Reducer<number, EditVoterIdReducerActions> =
     return electionId;
 }
 
-export const authenticateVoterReducer: Reducer<number, EditVoterIdReducerActions> = (userId = 0, action) => {
+export const authenticateVoterReducer: Reducer<number, EditVoterIdReducerActions> = (voterId = 0, action) => {
 
     if (isVerifyVoterAction(action)) {
       return action.payload.voterId;
     }
 
-
-    return userId;
+    return voterId;
 }
 
 export const updateErrorReducer: Reducer<number, EditVoterIdReducerActions> = (errorId = 0, action) => {
@@ -165,6 +164,6 @@ export const voterToolReducer: Reducer<VoterToolState, AnyAction> = combineReduc
     elections: electionsReducer,
     currentElectionId: selectElectionReducer,
     shownElectionId: showElectionReducer,
-    authenticatedVoterId: updateErrorReducer,
+    authenticatedVoterId: authenticateVoterReducer,
     errorId: updateErrorReducer,
 });
