@@ -49,7 +49,9 @@ export function Elections(props:ElectionsProps) {
                 onVerifyVoter={verifyVoter}
             />
         }
-
+        else if  (props.errorId === 1) {
+            result = <label>No voter was found with that id!</label>
+        }
         else if  (props.errorId === 2) {
             result = <label>Voter has already cast a ballot!</label>
         }
