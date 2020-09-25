@@ -55,7 +55,7 @@ export function Elections(props:ElectionsProps) {
                 <>
                 <label>No voter was found with that id!</label>
                 <div>
-                    <Link to={"/"}>Home</Link>
+                    <Link onClick={()=>{props.onUpdateError(0)}} to={"/"}>Home</Link>
                 </div>
                 </>
         }
@@ -64,14 +64,12 @@ export function Elections(props:ElectionsProps) {
                 <>
                 <label>Voter has already cast a ballot!</label>
                 <div>
-                    <Link to={"/"}>Home</Link>
+                    <Link onClick={()=>{props.onUpdateError(0)}} to={"/"}>Home</Link>
                 </div>
                 </>
         }
         else {
             // Election selected, valid user
-            console.log(`Election: ${props.currentElection}`);
-            console.dir(props.elections);
             result =
                 <BallotForm
                     election={props.elections[props.currentElection-1]}
